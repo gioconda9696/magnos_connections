@@ -427,16 +427,24 @@ https://templatemo.com/tm-597-neural-glass
     }
 }
  .hero-subtitle {
-     font-size: 0.9rem;
-     color: #e0a3ff;
-     margin-bottom: 25px;
+     font-size: 1.2rem;
+     color: #fff;
+     margin-bottom: 20px;
      opacity: 0;
-     animation: slideInFromLeft 1.2s ease 0.3s forwards;
+     animation: slideInFromLeft 2s ease 0.3s forwards;
      text-transform: uppercase;
-     letter-spacing: 0.4em;
+     letter-spacing: 0.3em;
      position: relative;
      display: inline-block;
      font-weight: 300;
+     text-shadow: 
+         0 0 5px #fff,
+         0 0 10px #fff,
+         0 0 20px #ff00ff,
+         0 0 40px #ff00ff,
+         0 0 60px #ff00ff,
+         0 0 80px #ff00ff;
+     padding: 5px 15px;
 }
  .hero-subtitle::before, .hero-subtitle::after {
      content: '';
@@ -452,6 +460,63 @@ https://templatemo.com/tm-597-neural-glass
 }
  .hero-subtitle::after {
      right: -60px;
+}
+
+/* Efecto de brillo neón para el texto */
+.shiny-text {
+    color: #fff;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 70px #ff00ff,
+        0 0 100px #ff00ff;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 0 10px rgba(255, 0, 255, 0.5),
+        inset 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #ff00ff,
+            0 0 40px #ff00ff,
+            0 0 70px #ff00ff,
+            0 0 100px #ff00ff;
+        box-shadow: 
+            0 0 10px rgba(255, 0, 255, 0.5),
+            inset 0 0 10px rgba(255, 0, 255, 0.3);
+    }
+    to {
+        text-shadow: 
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #ff00ff,
+            0 0 50px #ff00ff,
+            0 0 80px #ff00ff,
+            0 0 120px #ff00ff;
+        box-shadow: 
+            0 0 20px rgba(255, 0, 255, 0.8),
+            inset 0 0 15px rgba(255, 0, 255, 0.5);
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
 }
  @keyframes linePulse {
      0%, 100% {
@@ -651,17 +716,55 @@ https://templatemo.com/tm-597-neural-glass
      box-shadow: 0 4px 15px rgba(224, 163, 255, 0.1);
 }
  .cta-button:hover {
-     transform: translateY(-4px) scale(1.02);
-     box-shadow: 0 12px 30px rgba(224, 163, 255, 0.3);
+transform: translateY(-4px) scale(1.02);
+box-shadow: 0 12px 30px rgba(224, 163, 255, 0.3);
 }
  .cta-button.secondary:hover {
-     background: rgba(224, 163, 255, 0.08);
-     box-shadow: 0 12px 30px rgba(224, 163, 255, 0.2);
+background: rgba(224, 163, 255, 0.08);
+box-shadow: 0 12px 30px rgba(224, 163, 255, 0.2);
+}
+.whatsapp-float {
+position: fixed;
+right: 20px;
+bottom: 30px;
+display: inline-flex;
+align-items: center;
+gap: 10px;
+padding: 14px 18px;
+border-radius: 50px;
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.9), rgba(255, 105, 180, 0.9));
+color: #0c0c0c;
+font-weight: 600;
+text-decoration: none;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+backdrop-filter: blur(12px);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+z-index: 50;
+}
+.whatsapp-float span {
+font-size: 1.6rem;
+}
+.whatsapp-float div {
+display: flex;
+flex-direction: column;
+font-size: 0.85rem;
+color: #050505;
+}
+.whatsapp-float:hover {
+transform: translateY(-4px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.whatsapp-icon {
+width: 34px;
+height: 34px;
+object-fit: cover;
+border-radius: 50%;
 }
 /* Section 2: Diagonal Features */
  .features {
-     padding: 150px 0;
-     position: relative;
+padding: 150px 0;
+position: relative;
+overflow: hidden;
      overflow: hidden;
 }
  .features::before {
@@ -731,15 +834,17 @@ https://templatemo.com/tm-597-neural-glass
      box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
 }
  .feature-visual {
-     flex: 1;
-     height: 300px;
-     position: relative;
-     border-radius: 20px;
-     overflow: hidden;
-     background-size: cover;
-     background-position: center;
-     background-repeat: no-repeat;
-     transition: all 0.4s ease;
+    flex: 1;
+    height: 300px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: all 0.4s ease;
+    image-rendering: optimizeQuality;
+    image-rendering: -webkit-optimize-contrast;
 }
  .feature-visual:hover {
      transform: scale(1.05);
@@ -754,7 +859,6 @@ https://templatemo.com/tm-597-neural-glass
      bottom: 0;
      background: linear-gradient(45deg, rgba(224, 163, 255, 0.1), rgba(255, 105, 180, 0.1));
      z-index: 1;
-     backdrop-filter: blur(1px);
      transition: all 0.4s ease;
 }
  .feature-visual:hover::before {
@@ -764,11 +868,21 @@ https://templatemo.com/tm-597-neural-glass
      background-image: url('images/servicios/redes.png');
 }
  .feature-row:nth-child(2) .feature-visual {
-     background-image: url('images/templatemo-neural-02.jpg');
+     background-image: url('images/servicios/zonawifi.jpg');
 }
  .feature-row:nth-child(3) .feature-visual {
-     background-image: url('images/templatemo-neural-03.jpg');
+     background-image: url('images/servicios/servicio_camara.png');
 }
+ .feature-row:nth-child(4) .feature-visual {
+     background-image: url('images/servicios/reparacion_pc.png');
+}
+.feature-row:nth-child(5) .feature-visual {
+     background-image: url('images/servicios/servicio_teleco.png');
+}
+.feature-row:nth-child(6) .feature-visual {
+     background-image: url('images/servicios/venta_tecnologia.png');
+}
+
  .feature-icon {
      font-size: 4rem;
      margin-bottom: 25px;
