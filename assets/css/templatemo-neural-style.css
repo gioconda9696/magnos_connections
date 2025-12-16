@@ -14,6 +14,9 @@ https://templatemo.com/tm-597-neural-glass
      padding: 0;
      box-sizing: border-box;
 }
+ html {
+     overflow-x: hidden;
+ }
  body {
      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
      background: #000;
@@ -24,7 +27,17 @@ https://templatemo.com/tm-597-neural-glass
      line-height: 1.6;
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
-}
+ }
+
+ img {
+     max-width: 100%;
+     height: auto;
+ }
+
+
+ iframe {
+     max-width: 100%;
+ }
 /* Enhanced background colors - Purple/Pink/Green palette */
  .neural-background {
      position: fixed;
@@ -462,6 +475,13 @@ https://templatemo.com/tm-597-neural-glass
      right: -60px;
 }
 
+@media (max-width: 600px) {
+     .hero-subtitle::before,
+     .hero-subtitle::after {
+         display: none;
+     }
+ }
+
 /* Efecto de brillo neón para el texto */
 .shiny-text {
     color: #fff;
@@ -741,6 +761,14 @@ backdrop-filter: blur(12px);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 z-index: 50;
 }
+@media (max-width: 480px) {
+     .whatsapp-float {
+         right: 12px;
+         left: 12px;
+         width: auto;
+         max-width: calc(100% - 24px);
+     }
+ }
 .whatsapp-float span {
 font-size: 1.6rem;
 }
@@ -865,22 +893,22 @@ overflow: hidden;
      background: linear-gradient(45deg, rgba(224, 163, 255, 0.2), rgba(255, 105, 180, 0.2));
 }
  .feature-row:nth-child(1) .feature-visual {
-     background-image: url('images/servicios/redes.png');
+     background-image: url('../../assets/images/servicios/redes.png');
 }
  .feature-row:nth-child(2) .feature-visual {
-     background-image: url('images/servicios/zonawifi.jpg');
+     background-image: url('../../assets/images/servicios/zonawifi.jpg');
 }
  .feature-row:nth-child(3) .feature-visual {
-     background-image: url('images/servicios/servicio_camara.png');
+     background-image: url('../../assets/images/servicios/servicio_camara.png');
 }
  .feature-row:nth-child(4) .feature-visual {
-     background-image: url('images/servicios/reparacion_pc.png');
+     background-image: url('../../assets/images/servicios/reparacion_pc.png');
 }
 .feature-row:nth-child(5) .feature-visual {
-     background-image: url('images/servicios/servicio_teleco.png');
+     background-image: url('../../assets/images/servicios/servicio_teleco.png');
 }
 .feature-row:nth-child(6) .feature-visual {
-     background-image: url('images/servicios/venta_tecnologia.png');
+     background-image: url('../../assets/images/servicios/venta_tecnologia.png');
 }
 
  .feature-icon {
@@ -1271,23 +1299,38 @@ overflow: hidden;
 	 .feature-row {
         flex-direction: column;
         gap: 40px;
-		min-height: 720px;
+		min-height: auto;
+        align-items: stretch;
     }
 
     .feature-row:nth-child(even) {
         flex-direction: column;
     }
 	.feature-content {
-    	flex: 0;
+	    flex: 0;
+		transform: none;
+		padding: 35px;
+	}
+	.feature-content:hover {
+		transform: translateY(-6px);
 	}
     .feature-visual {
-        height: 250px; /* Adjust the height for mobile view */
+        display: block;
+        flex: 0 0 auto;
         width: 100%;
+        height: 250px; /* Adjust the height for mobile view */
+        min-height: 250px;
+        align-self: stretch;
     }
      .contact-container {
          grid-template-columns: 1fr;
          gap: 40px;
     }
+
+     .contact-form iframe {
+         display: block;
+         width: 100%;
+     }
 
      .timeline-line {
          left: 30px;
@@ -1303,6 +1346,8 @@ overflow: hidden;
      .timeline-content {
          max-width: 100%;
     }
+
+    
 }
 
 @media (max-width: 1000px) {
@@ -1315,11 +1360,36 @@ overflow: hidden;
     }
 }
  @media (max-width: 768px) {
+     header {
+         padding: 14px 18px;
+         top: 12px;
+     }
+
+     .logo {
+         font-size: 22px;
+     }
+
      .hero-logo-container {
         max-width: 280px;
         margin: 0 auto;
          font-size: 1.1rem;
     }
+
+     .feature-row {
+         gap: 24px;
+     }
+
+     .feature-content {
+         padding: 26px;
+     }
+
+     .feature-content h3 {
+         font-size: 1.7rem;
+     }
+
+     .feature-content p {
+         font-size: 1rem;
+     }
      .hero-stats {
          grid-template-columns: repeat(2, 1fr);
          gap: 20px;
@@ -1396,7 +1466,54 @@ overflow: hidden;
      .footer-links a {
          font-size: 0.85rem;
     }
+
+    
+    
 }
+ @media (max-width: 562px) {
+     .contact-container {
+         padding: 0 16px;
+     }
+
+     .contact-info,
+     .contact-form {
+         width: 100%;
+         max-width: 560px;
+         margin: 0 auto;
+     }
+
+     .contact-info {
+         padding: 34px 22px;
+     }
+
+     .contact-form {
+         padding: 26px 18px;
+     }
+ }
+
+ @media (max-width: 512px) {
+     .contact-container {
+         padding: 0 12px;
+     }
+
+     .contact-info,
+     .contact-form {
+         max-width: 360px;
+     }
+
+     .contact-info {
+         padding: 28px 18px;
+     }
+
+     .contact-form {
+         padding: 22px 14px;
+     }
+
+     .contact-info h3{
+            font-size: 1.5rem;
+     }
+ }
+
 /* Enhanced scrollbar */
  ::-webkit-scrollbar {
      width: 12px;
@@ -1413,4 +1530,9 @@ overflow: hidden;
  ::-webkit-scrollbar-thumb:hover {
      background: linear-gradient(45deg, #ff0080, #8000ff);
      box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
+}
+
+
+.font-weight-bold{
+    font-weight: bold !important;
 }
